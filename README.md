@@ -15,7 +15,6 @@
 ### Association
 has_many :items
 has_many :order
-has_one :records
 
 ## items table
 |Column            |Type        |Options                         |
