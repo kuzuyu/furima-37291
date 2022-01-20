@@ -24,7 +24,7 @@ has_many :records
 | price              |integer     |null: false                     |
 | item_condition_id  |integer     |null: false                     |
 | postage_payer_id   |integer     |null: false                     |
-| category_id        |integer     |null: false, foreign_key: true  |
+| category_id        |integer     |null: false,                    |
 | preparation_day_id |integer     |null: false                     |
 | area_id            |integer     |null: false                     |
 | user               |references  |null: false, foreign_key: true  |
@@ -37,7 +37,7 @@ has_one :record
 |Column              |Type        |Options                         |
 |--------------------|------------|--------------------------------|
 |post_number         |string      |null: false                     |
-|prefecture_code_id  |integer     |null: false                     |
+|area_id             |integer     |null: false                     |
 |city                |string      |null: false                     |
 |address             |string      |null: false                     |
 |building_number     |string      |null: false                     |
