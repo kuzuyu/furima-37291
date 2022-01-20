@@ -1,24 +1,59 @@
-# README
+# DB 設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
+|Column              |Type        |Options                        |
+|--------------------|------------|-------------------------------|
+| name               |string      |null: false,                   |
+| email              |string      |null: false, unique: true      |
+| encrypted_password |string      |null: false                    |
+| first_name         |string      |null: false                    |
+| first_name_kana    |string      |null: false                    |
+| family_name        |string      |null: false                    |
+| family_name_kana   |string      |null: false                    |
+| birth_day          |date        |null: false                    |
 
-Things you may want to cover:
+### Association
+has_many :items
+has_many :records
 
-* Ruby version
+## items table
+|Column              |Type        |Options                         |
+|--------------------|------------|--------------------------------|
+| item_name          |string      |null: false                     |
+| item_information   |text        |null: false                     |
+| price              |integer     |null: false                     |
+| item_condition_id  |integer     |null: false                     |
+| postage_payer_id   |integer     |null: false                     |
+| category_id        |integer     |null: false,                    |
+| preparation_day_id |integer     |null: false                     |
+| area_id            |integer     |null: false                     |
+| user               |references  |null: false, foreign_key: true  |
 
-* System dependencies
+### Association
+belongs_to :user
+has_one :record
 
-* Configuration
+## order table
+|Column              |Type        |Options                         |
+|--------------------|------------|--------------------------------|
+|post_number         |string      |null: false                     |
+|area_id             |integer     |null: false                     |
+|city                |string      |null: false                     |
+|address             |string      |null: false                     |
+|building_name       |string      |                                |
+|phone_number        |string      |null: false                     |
+|record              |references  |null: false, foreign_key: true  |
 
-* Database creation
+### Association
+belongs_to :record
 
-* Database initialization
+## records table
+|Column            |Type        |Options                         |
+|------------------|------------|--------------------------------|
+|user              |references  |null: false, foreign_key: true  |
+|item              |references  |null: false, foreign_key: true  |
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+belongs_to :user
+belongs_to :item
+has_one :order
