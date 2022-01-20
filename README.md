@@ -3,8 +3,8 @@
 ## users table
 |Column              |Type        |Options                        |
 |--------------------|------------|-------------------------------|
-| name               |string      |null: false, unique: true      |
-| email              |string      |null: false                    |
+| name               |string      |null: false,                   |
+| email              |string      |null: false, unique: true      |
 | encrypted_password |string      |null: false                    |
 | first_name         |string      |null: false                    |
 | first_name_kana    |string      |null: false                    |
@@ -21,11 +21,12 @@ has_many :records
 |--------------------|------------|--------------------------------|
 | item_name          |string      |null: false                     |
 | item_information   |text        |null: false                     |
+| price              |integer     |null: false                     |
 | item_condition_id  |integer     |null: false                     |
 | postage_payer_id   |integer     |null: false                     |
-| category           |references  |null: false, foreign_key: true  |
-| price              |integer     |null: false                     |
-| preparation_day    |integer     |null: false                     |
+| category_id        |integer     |null: false, foreign_key: true  |
+| preparation_day_id |integer     |null: false                     |
+| area_id            |integer     |null: false                     |
 | user               |references  |null: false, foreign_key: true  |
 
 ### Association
