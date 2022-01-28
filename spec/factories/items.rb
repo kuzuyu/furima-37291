@@ -5,7 +5,6 @@ FactoryBot.define do
       item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
     end
 
-    image               {}
     item_name           {"名前"}
     item_information    {"説明"}
     price               {10000}
