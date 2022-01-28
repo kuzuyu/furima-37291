@@ -10,17 +10,22 @@ class Item < ApplicationRecord
 
   validates :item_name, presence: true
   validates :item_information, presence: true 
-  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 }
+  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999,  }
   validates :category_id, presence: true
   validates :item_condition_id, presence: true
   validates :postage_payer_id, presence: true
   validates :area_id, presence: true
   validates :preparation_day_id, presence: true
-  validates :image, presence: true
+  validates :image, presence: true 
+
+  with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' } do
+    validates :price
+  end
 
   validates :category_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :item_condition_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :postage_payer_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :area_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :preparation_day_id, numericality: { other_than: 1 , message: "can't be blank"}
+  
 end
