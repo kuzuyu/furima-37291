@@ -4,7 +4,14 @@ RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
   end
+  
   describe '商品情報入力' do
+    context '新規登録できる場合' do
+      it "全ての情報が入力されている場合" do
+        expect(@item).to be_valid
+      end
+
+    end
     context '商品情報の入力がうまくいかない時' do
       it 'imageが空の場合' do
         @item.image = nil
