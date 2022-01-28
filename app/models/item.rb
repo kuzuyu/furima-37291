@@ -18,7 +18,7 @@ class Item < ApplicationRecord
   validates :preparation_day_id, presence: true
   validates :image, presence: true 
 
-  with_options presence: true, format: { with: /\A[0-9]+\z/, message: '半角数字を使用してください' } do
+  with_options presence: true, format: { with: /\A[0-9]+\z/, message: 'には半角数字を使用してください' } do
     validates :price
   end
 
