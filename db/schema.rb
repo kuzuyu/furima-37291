@@ -42,8 +42,10 @@ ActiveRecord::Schema.define(version: 2022_01_25_040943) do
     t.integer "category_id", null: false
     t.integer "preparation_day_id", null: false
     t.integer "area_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_items_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
