@@ -74,11 +74,11 @@ ActiveRecord::Schema.define(version: 2022_02_02_055848) do
     t.string "name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "first_name", default: "", null: false
-    t.string "family_name", default: "", null: false
-    t.string "first_name_kana", default: "", null: false
-    t.string "family_name_kana", default: "", null: false
-    t.date "birth_day"
+    t.string "first_name", null: false
+    t.string "family_name", null: false
+    t.string "first_name_kana", null: false
+    t.string "family_name_kana", null: false
+    t.date "birth_day", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
