@@ -1,6 +1,6 @@
 class OrderRecords
   include ActiveModel::Model
-  attr_accessor :post_number, :area_id, :city, :address, :building_name, :phone_number, :item_id, :user_id
+  attr_accessor :post_number, :area_id, :city, :address, :building_name, :phone_number, :item_id, :user_id, :token
 
   validates :area_id, numericality: { other_than: 1 }
 
@@ -11,6 +11,7 @@ class OrderRecords
     validates :city
     validates :address
     validates :phone_number, format: {with: /\A[0-9]{11}\z/ }
+    validates :token
   end
 
   def save
