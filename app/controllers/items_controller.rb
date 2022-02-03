@@ -53,6 +53,9 @@ class ItemsController < ApplicationController
   end
 
   def corrent_user
-    redirect_to root_path unless @item.user.id == current_user.id
+    if @item.user_id == current_user.id && @item.record.nil?
+    else
+      redirect_to root_path
+    end
   end
 end
