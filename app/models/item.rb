@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :area
   belongs_to :preparation_day
   has_one_attached :image
+  has_one    :record
 
   validates :item_name, presence: true
   validates :item_information, presence: true 
